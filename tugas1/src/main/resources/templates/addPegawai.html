@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset = "ISO-8859-1">
+		<title>Tambah Pegawai</title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">
+						<h3>Tambah Pegawai</h3>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/pegawai/tambah}" th:object="${pegawai}" method="POST">
+						 <div class="form-group row">
+						    <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+						    <div class="col-sm-8">
+						      <input required type="text" class="form-control" name="nama" id="nama" placeholder="Masukan nama">
+						    </div>
+						  </div>
+						  
+						  <div class="form-group row">
+						    <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
+						    <div class="col-sm-8">
+						      <input required type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" placeholder="Masukan tempat lahir">
+						    </div>
+						  </div>
+						  
+						  <div class="form-group row">
+						    <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+						    <div class="col-sm-8">
+						      <input required type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
+						    </div>
+						  </div>
+						  
+						  <div class="form-group row">
+						    <label for="tahun_masuk" class="col-sm-2 col-form-label">Tahun Masuk</label>
+						    <div class="col-sm-8">
+						      <input required type="number" class="form-control" name="tahun_masuk" id="tahun_masuk">
+						    </div>
+						  </div>
+						  
+						  
+						  <div class="form-group row">
+						    <div class="col-sm-8">
+						      <button type="submit" class="btn btn-primary">Tambah</button>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
