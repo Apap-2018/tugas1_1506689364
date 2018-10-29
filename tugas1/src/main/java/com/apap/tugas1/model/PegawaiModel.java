@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -71,7 +72,19 @@ public class PegawaiModel implements Serializable {
 	@JoinTable(name = "jabatan_pegawai", joinColumns = {@JoinColumn(name = "id_pegawai")},
 				inverseJoinColumns = {@JoinColumn(name = "id_jabatan")})
 	private List<JabatanModel> jabatan;
+	
+	public List<JabatanPegawaiModel> getJabatanPegawai() {
+		return jabatanPegawai;
+	}
 
+	public void setJabatanPegawai(List<JabatanPegawaiModel> jabatanPegawai) {
+		this.jabatanPegawai = jabatanPegawai;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pegawai")
+	private List<JabatanPegawaiModel> jabatanPegawai;
+	
+	
 	public long getId() {
 		return id;
 	}

@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="card">
-						<div class="card-header">
+						<div class="card-header" align="center">
 							<h3>Detail Jabatan [[${jabatan.nama}]]</h3>
 						</div>
 		
@@ -34,20 +34,29 @@
 						  <div class="form-group row">
 						    <label for="gaji_pokok" class="col-sm-2 col-form-label">Gaji Pokok</label>
 						    <div class="col-sm-8">
-						      <input required type="text" class="form-control" name="gaji_pokok" th:value="${jabatan.gaji_pokok}" disabled>
+						      <input required type="text" class="form-control" name="gaji_pokok" th:value="'Rp. '+${jabatan.gaji_pokok}" disabled>
 						    </div>
 						  </div>
-				  
+						  
 						  <div class="form-group row">
-						    <div class="col-md-2">
-						    <form th:action="@{/jabatan/ubah}" method="GET">
-						    	<button type="submit" class="btn btn-primary" th:value="${jabatan.id}" name="id">Ubah</button>
-						    </form>
+						    <label for="jumlah_pegawai" class="col-sm-2 col-form-label">Jumlah Pegawai</label>
+						    <div class="col-sm-8">
+						      <input required type="text" class="form-control" name="jumlah_pegawai" th:value="${jabatan.getPegawai().size()}" disabled>
 						    </div>
+						  </div>
+						  
+						  <br>
+						  
+						  <div class="form-group row" align="center">
+						    <div class="col-md-6">
+						    <form th:action="@{/jabatan/ubah}" method="GET">
+						    	<button type="submit" class="btn btn-primary" th:value="${jabatan.id}" name="id"><i class="fas fa-edit"></i> Ubah</button>
+						    </form>
+						  </div>
 						 
-						    <div class="col-md-4">
+						    <div class="col-md-4" align="center">
 							    <form th:action="@{/jabatan/hapus}" method="POST">
-							    	<button type="submit" class="btn btn-danger" th:value="${jabatan.id}" name="id">Hapus</button>
+							    	<button type="submit" class="btn btn-danger" th:value="${jabatan.id}" name="id"><i class="fas fa-trash-alt"></i> Hapus</button>
 							    </form>
 						    </div>
 						  </div>

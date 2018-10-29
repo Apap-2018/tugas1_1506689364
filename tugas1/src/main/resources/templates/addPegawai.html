@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header" align="center">
 						<h3>Tambah Pegawai</h3>
 					</div>
 					<div class="card-body">
@@ -45,13 +45,44 @@
 						    </div>
 						  </div>
 						  
+						  <div class="form-group row">
+						    <label for="provinsi" class="col-sm-2 col-form-label">Provinsi</label>
+						    <div class="col-sm-8">
+						    <select class="form-control" name="provinsi" id="provinsi">
+						    	<option th:each="provinsi : ${listProvinsi}" th:value="${provinsi.id}" th:text="${provinsi.nama}"></option>
+						    </select> 
+						    </div>
+						  </div>
 						  
 						  <div class="form-group row">
+						    <label for="provinsi" class="col-sm-2 col-form-label">Nama Instansi</label>
 						    <div class="col-sm-8">
-						      <button type="submit" class="btn btn-primary">Tambah</button>
+						    <select class="form-control" name="instansi" id="instansi">
+						    	<option th:each="instansi : ${listInstansi}" th:value="${instansi.id}" th:text="${instansi.nama}"></option>
+						    </select> 
+						    </div>
+						  </div>
+						  
+						  <div class="form-group row">
+						    <label for="provinsi" class="col-sm-2 col-form-label">Jabatan</label>
+						    <div class="col-sm-8">
+						    <select class="form-control" name="jabatan" id="jabatan">
+						    	<option th:each="jabatan : ${listJabatan}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
+						    </select> 
 						    </div>
 						  </div>
 						</form>
+						<br>
+						<div class="form-group row">
+						<div class="col-md-5"  align="center">
+							    <form th:action="@{/}" method="GET">
+							    	<button type="submit" class="btn btn-secondary"><i class="fas fa-arrow-circle-left"></i> Kembali</button>
+							    </form>
+							</div>
+						    <div class="col-sm-5" align="center">
+						      <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i> Tambah</button>
+						    </div>
+						  </div>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset = "ISO-8859-1">
+		<title>Cari Pegawai</title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+
+	<body>
+		<nav th:replace="fragments/fragment :: navbar"></nav>
+		
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header" align="center">
+						<h3>Cari Pegawai</h3>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/pegawai/cari}" th:object="${pegawai}" method="GET">
+						  <div class="form-group row">
+						    <label for="provinsi" class="col-sm-2 col-form-label">Provinsi</label>
+						    <div class="col-sm-8">
+						      <select class="form-control" name="idProvinsi">
+						      		<option>Pilih Provinsi</option>
+									<option th:each="provinsi : ${listProvinsi}" th:value="${provinsi.id}" th:text="${provinsi.nama}"></option>
+								</select>
+						    </div>
+						  </div>
+						  
+						  <div class="form-group row">
+						    <label for="instansi" class="col-sm-2 col-form-label">Nama Instansi</label>
+						    <div class="col-sm-8">
+						    	<select class="form-control" name="idInstansi">
+						      		<option>Pilih Instansi</option>
+									<option th:each="instansi : ${listInstansi}" th:value="${instansi.id}" th:text="${instansi.nama} +' - '+${instansi.provinsi.nama}"></option>
+								</select>
+						    </div>
+						 </div>
+						 
+						  <div class="form-group row">
+						    <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
+						    <div class="col-sm-8">
+						      <select class="form-control" name="idJabatan">
+						      		<option>Pilih Jabatan</option>
+									<option th:each="jabatan : ${listJabatan}" th:value="${jabatan.id}" th:text="${jabatan.nama}"></option>
+								</select>
+						    </div>
+						  </div>						  
+						  
+						</form>
+						
+						<div class="form-group row" align="center">
+						    <div class="col-sm-10">
+						      <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Cari</button>
+						    </div>
+						  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

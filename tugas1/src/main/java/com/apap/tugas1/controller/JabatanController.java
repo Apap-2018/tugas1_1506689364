@@ -24,6 +24,7 @@ public class JabatanController {
 	private JabatanService jabatanService;
 	
 	/**
+	 * Fitur 5
 	 * Tambah Jabatan
 	 * @param model
 	 * @return
@@ -49,6 +50,7 @@ public class JabatanController {
 	}
 	
 	/**
+	 * Fitur 9
 	 * Lihat Daftar Semua Jabatan Pegawai
 	 * @param model
 	 * @return
@@ -62,6 +64,7 @@ public class JabatanController {
 	}
 	
 	/**
+	 * Fitur 6
 	 * Lihat Jabatan
 	 * @param id
 	 * @param model
@@ -83,6 +86,7 @@ public class JabatanController {
 	}
 	
 	/**
+	 * Fitur 7
 	 * Ubah Jabatan
 	 * @param id
 	 * @param model
@@ -119,6 +123,7 @@ public class JabatanController {
 	}
 	
 	/**
+	 * Fitur 8
 	 * Hapus Jabatan
 	 * @param id
 	 * @param jabatan

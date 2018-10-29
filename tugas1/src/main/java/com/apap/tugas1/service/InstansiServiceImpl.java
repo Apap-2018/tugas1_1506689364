@@ -11,12 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class InterfaceServiceImpl implements InstansiService{
+public class InstansiServiceImpl implements InstansiService{
 	@Autowired
 	private InstansiDb instansiDb;
 	
 	@Override
 	public List<InstansiModel> getAllInstansi() {
 		return instansiDb.findAll();
+	}
+	
+	@Override
+	public InstansiModel getInstansiByID(Long id) {
+		return instansiDb.getOne(id);
 	}
 }
